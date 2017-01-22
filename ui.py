@@ -48,11 +48,12 @@ def ask_for_book_id():
 
 def get_new_book_info():
 
-    ''' Get title and author of new book from user '''
+    ''' Get title and author of new book from user, added a blank date as a hold point '''
 
     title = input('Enter title: ')
     author = input('Enter author: ')
-    return Book(title, author)
+    dateRead = ''
+    return Book(title, author, dateRead)
 
 
 def message(msg):

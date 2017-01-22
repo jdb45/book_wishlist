@@ -36,7 +36,6 @@ def show_read():
     read = datastore.get_books(read=True)
     ui.show_list(read)
 
-
 def book_read():
     ''' Get choice from user, edit datastore, display success/error'''
     book_id = ui.ask_for_book_id()

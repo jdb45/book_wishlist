@@ -4,12 +4,13 @@ class Book:
 
     NO_ID = -1
 
-    def __init__(self, title, author, read=False, id=NO_ID):
+    def __init__(self, title, author, dateread, read=False, id=NO_ID):
         '''Default book is unread, and has no ID'''
         self.title = title
         self.author = author
         self.read = read
         self.id=id
+        self.dateread = dateread
 
 
     def set_id(self, id):
@@ -25,8 +26,8 @@ class Book:
         if id == -1:
             id_str = '(no id)'
 
-        template = 'id: {} Title: {} Author: {} Read: {}'
-        return template.format(id_str, self.title, self.author, read_str)
+        template = 'id: {} Title: {} Author: {} Read: {} Date Read: {}'
+        return template.format(id_str, self.title, self.author, read_str, self.dateread)
 
 
     def __eq__(self, other):
