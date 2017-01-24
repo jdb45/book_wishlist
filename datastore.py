@@ -61,10 +61,29 @@ def get_books(**kwargs):
     if len(kwargs) == 0:
         return book_list
 
+      # giving the user the option to sort the books in a specific way
     if 'read' in kwargs:
-        read_books = [ book for book in book_list if book.read == kwargs['read'] ]
-        return read_books
+        print('''
+      1. Sort by Title
+      2. Sort by Author
+      3. Sort by book ID
+          ''')
+        user_sort = input('Enter your selection: ')
+        # taking the user choice and displaying the list
+        if user_sort == '1':
+            book_list = sorted(book_list, key=lambda book: book.title)
+            read_books = [book for book in book_list if book.read == kwargs['read']]
+            return read_books
 
+        elif user_sort == '2':
+            book_list = sorted(book_list, key=lambda book: book.author)
+            read_books = [book for book in book_list if book.read == kwargs['read']]
+            return read_books
+
+        else:
+            book_list = sorted(book_list, key=lambda book: book.id)
+            read_books = [book for book in book_list if book.read == kwargs['read']]
+            return read_books
 
 
 def add_book(book):

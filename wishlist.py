@@ -40,7 +40,7 @@ def show_read():
     ui.show_list(read)
 
 def delete_unread():
-    # will get the user input and call the function to delete the book 
+    # will get the user input and call the function to delete the book
     show_unread()
     book_deleted = ui.ask_for_book_id()
     datastore.delete_unread_book(book_deleted)
