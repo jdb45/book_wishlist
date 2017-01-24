@@ -97,7 +97,14 @@ def set_read(book_id, read):
 
     return False # return False if book id is not found
 
+def delete_unread_book(book_id):
+    # function to remove an unread book from the list
+    global book_list
 
+    for book in book_list:
+        if book.id == book_id:
+            book_list.remove(book)
+            print("Successfully removed", book.title, "from the unread book list")
 
 def make_book_list(string_from_file):
     ''' turn the string from the file into a list of Book objects'''
