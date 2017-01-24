@@ -110,6 +110,12 @@ def set_read(book_id, read):
     # added a input to get the user input of the date they read the book
          if book.id == book_id:
             book.read = True
+            get_review = input('Would you like to enter a review of the book? yes or no?')
+            if get_review.lower().startswith("y"):
+                user_review = input('Enter review here:')
+                book.review = user_review
+            else:
+                book.review = 'None Given'
             user_date = input("Please enter the date you read the book:")
             book.dateread = user_date
             return True

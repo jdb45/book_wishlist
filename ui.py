@@ -54,7 +54,8 @@ def get_new_book_info():
     title = input('Enter title: ')
     author = input('Enter author: ')
     dateRead = ''
-    return Book(title, author, dateRead)
+    review = ''
+    return Book(title, author, dateRead, review)
 
 
 def message(msg):
