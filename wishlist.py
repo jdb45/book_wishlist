@@ -19,6 +19,9 @@ def handle_choice(choice):
     elif choice == '4':
         new_book()
 
+    elif choice == '5':
+        delete_unread()
+
     elif choice == 'q':
         quit()
 
@@ -37,6 +40,11 @@ def show_read():
     read = datastore.get_books(read=True)
     ui.show_list(read)
 
+def delete_unread():
+    # will get the user input and call the function to delete the book
+    show_unread()
+    book_deleted = ui.ask_for_book_id()
+    datastore.delete_unread_book(book_deleted)
 
 def book_read():
     ''' Get choice from user, edit datastore, display success/error'''
