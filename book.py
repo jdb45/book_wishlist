@@ -17,7 +17,7 @@ class Book:
 
     def set_id(self, id):
         self.id = id
-
+        #toJson method converts book object to json object(string)
     def toJSON(self):
         return json.dumps(self, default= lambda o: o.__dict__)
 

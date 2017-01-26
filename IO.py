@@ -14,18 +14,19 @@ def setup():
 
     try :
         with open(BOOKS_FILE_NAME) as f:
+            #load data as json
             data = json.load(f)
         for line in data:
+            #parse json into book object
             newBook = jsonBook(line)
             datastore.book_list.append(newBook)
-        for book in datastore.book_list:
-            print(str(book))
+        #for book in datastore.book_list:
+            #print(str(book))
 
-            #datastore.make_book_list(data)
     except FileNotFoundError:
         # First time program has run. Assume no books.
-        #pass
         print('file not found')
+        pass
     except:
         #pass if file is empty
         pass
@@ -42,12 +43,14 @@ def setup():
 
 def shutdown():
     '''Save all data to a file - one for books, one for the current counter value, for persistent storage'''
-    #output_data = datastore.make_output_data()
-    # ob=''
+    #sort list before writing it to file
+    datastore.book_list = sorted(datastore.book_list, key=lambda book: book.id)
+    #create json array to write to file
     jsonArray = []
     for book in datastore.book_list:
-         jsonArray.append(book.toJSON())
-    #     ob+='\n'
+        #call toJson method of class
+        jsonArray.append(book.toJSON())
+    #write json to file
     with open(BOOKS_FILE_NAME, 'w') as f:
         # print(datastore.book_list)
         # f.write(ob)

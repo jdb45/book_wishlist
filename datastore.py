@@ -46,6 +46,7 @@ def get_books(**kwargs):
             book_list = sorted(book_list, key=lambda book: book.id)
             read_books = [book for book in book_list if book.read == kwargs['read']]
             return read_books
+    #allows for search function by title
     elif 'title' in kwargs:
         for book in book_list:
             if book.title == kwargs['title']:
@@ -65,11 +66,13 @@ def generate_id():
     global counter
     global book_list
     book_list = sorted(book_list, key=lambda book: book.id)
+
     counter = len(book_list)-1
     try:
         bid= book_list[counter]
         counter = bid.id+1
     except IndexError:
+        #handle empty list error
         counter = 1
     return counter
 

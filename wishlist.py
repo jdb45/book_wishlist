@@ -1,6 +1,6 @@
 #Main program
 
-import ui, datastore, IO
+import ui, datastore, IO, editer
 from book import Book
 book_list =[]
 counter=0
@@ -25,12 +25,18 @@ def handle_choice(choice):
     elif choice == '6':
         search()
 
+    elif choice == '7':
+        edit()
+
     elif choice == 'q':
         quit()
 
     else:
         ui.message('Please enter a valid selection')
-
+#call editer methods to process editing
+def edit():
+    editer.editItem()
+#search for book title
 def search():
     print('Enter the title of the book')
     sTitle = input()
