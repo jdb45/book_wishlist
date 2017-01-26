@@ -47,7 +47,7 @@ def ask_for_book_id():
             print('Please enter an integer number')
 
 
-def get_new_book_info():
+def get_new_book_info(book_list):
 
     ''' Get title and author of new book from user, added a blank date as a hold point '''
 
@@ -55,7 +55,18 @@ def get_new_book_info():
     author = input('Enter author: ')
     dateRead = ''
     review = ''
-    return Book(title, author, dateRead, review)
+    for book in book_list:
+        if book.title == title and book.author == author:
+            print('This book has already been added to the list')
+            print('Would you like to add it again? y for yes')
+            answer = input()
+            if (answer is 'y'):
+                return Book(title, author, dateRead, review)
+            else:
+                return ''
+        else:
+            return Book(title, author, dateRead, review)
+
 
 
 def message(msg):

@@ -65,9 +65,12 @@ def book_read():
 
 def new_book():
     '''Get info from user, add new book'''
-    new_book = ui.get_new_book_info()
-    datastore.add_book(new_book)
-    ui.message('Book added: ' + str(new_book))
+    new_book = ui.get_new_book_info(datastore.book_list)
+    if (new_book==''):
+        pass
+    else:
+        datastore.add_book(new_book)
+        ui.message('Book added: ' + str(new_book))
 
 
 def quit():
