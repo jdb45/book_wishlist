@@ -22,12 +22,20 @@ def handle_choice(choice):
     elif choice == '5':
         delete_unread()
 
+    elif choice == '6':
+        search()
+
     elif choice == 'q':
         quit()
 
     else:
         ui.message('Please enter a valid selection')
 
+def search():
+    print('Enter the title of the book')
+    sTitle = input()
+    sbook = datastore.get_books(title = sTitle)
+    print(str(sbook))
 
 def show_unread():
     '''Fetch and show all unread books'''

@@ -46,6 +46,10 @@ def get_books(**kwargs):
             book_list = sorted(book_list, key=lambda book: book.id)
             read_books = [book for book in book_list if book.read == kwargs['read']]
             return read_books
+    elif 'title' in kwargs:
+        for book in book_list:
+            if book.title == kwargs['title']:
+                return book
 
 
 def add_book(book):
