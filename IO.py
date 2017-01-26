@@ -8,9 +8,6 @@ DATA_DIR = 'data'
 BOOKS_FILE_NAME = os.path.join(DATA_DIR, 'wishlist.txt')
 COUNTER_FILE_NAME = os.path.join(DATA_DIR, 'counter.txt')
 
-#separator = '^^^'  # a string probably not in any valid data relating to a book
-
-
 def setup():
     ''' Read book info from file, if file exists. '''
 
@@ -29,9 +26,9 @@ def setup():
         # First time program has run. Assume no books.
         #pass
         print('file not found')
-    #except:
-        #pass
-
+    except:
+        #pass if file is empty
+        pass
 
     try:
         with open(COUNTER_FILE_NAME) as f:
@@ -59,14 +56,3 @@ def shutdown():
 
     with open(COUNTER_FILE_NAME, 'w') as f:
         f.write(str(datastore.counter))
-    # Create data directory
-    # try:
-    #     os.mkdir(DATA_DIR)
-    # except FileExistsError:
-    #     pass # Ignore - if directory exists, don't need to do anything.
-    #
-    # with open(BOOKS_FILE_NAME, 'w') as f:
-    #     f.write(output_data)
-    #
-    # with open(COUNTER_FILE_NAME, 'w') as f:
-    #     f.write(str(counter))

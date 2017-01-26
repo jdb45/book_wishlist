@@ -21,14 +21,6 @@ class Book:
     def toJSON(self):
         return json.dumps(self, default= lambda o: o.__dict__)
 
-    def toObject(string):
-        jbook = json.loads(string)
-        #jbook = Book(string [0][1], string[1][1], string [4][1], string [5][1])
-        #jbook.read  = string [2][1]
-        #jbook.id = string[3][1]
-        return jbook
-
-
     def __str__(self):
         read_str = 'no'
         date_read_str = 'N/A'

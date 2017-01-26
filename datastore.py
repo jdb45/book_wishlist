@@ -100,30 +100,7 @@ def delete_unread_book(book_id):
             book_list.remove(book)
             print("Successfully removed", book.title, "from the unread book list")
 
-def make_book_list(string_from_file):
-    ''' turn the string from the file into a list of Book objects'''
-    global book_list
-    print(string_from_file)
 
-    #jsonArray = string_from_file.split(',')
-    #print(jsonArray)
-    #for no in string_from_file["title"]["author"]["read"]["id"]["dateread"]["review"]:
-    for line in string_from_file:
-        print(line)
-        addBook = Book.toObject(line)
-
-        print (str(addBook))
-        book_list.append(addBook)
-    print (str(len(book_list)))
-    for book in book_list:
-        print (book)
-    #books_str = string_from_file.split('\n')
-
-    # for book_str in books_str:
-    #     data = book_str.split(separator)
-    #     book = Book(data[0], data[1], data[2], data[3], data[4] == 'True', int(data[5]))
-    #     book_list.append(book)
-    #     return book_list
 
 
 def make_output_data():
