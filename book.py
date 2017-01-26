@@ -1,3 +1,4 @@
+import json
 class Book:
 
     ''' Represents one book in a user's list of books'''
@@ -16,6 +17,16 @@ class Book:
 
     def set_id(self, id):
         self.id = id
+
+    def toJSON(self):
+        return json.dumps(self, default= lambda o: o.__dict__)
+
+    def toObject(string):
+        jbook = json.loads(string)
+        #jbook = Book(string [0][1], string[1][1], string [4][1], string [5][1])
+        #jbook.read  = string [2][1]
+        #jbook.id = string[3][1]
+        return jbook
 
 
     def __str__(self):
